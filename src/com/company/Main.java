@@ -7,5 +7,7 @@ public class Main {
         sfrm.setVisible(true);
         CFrame cfrm = new CFrame();
         cfrm.setVisible(true);
+        Draw dr = new Draw();
+        dr.setVisible(true);
     }
 }

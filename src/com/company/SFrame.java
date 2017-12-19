@@ -14,7 +14,6 @@ public class SFrame extends JFrame{
     private JScrollPane jsp = new JScrollPane(jta);
     private JScrollPane jspOut = new JScrollPane(jtaOut);
     private JPanel jpnBottom = new JPanel(new BorderLayout(5,5));
-
     private JPanel jpnFunction = new JPanel(new GridLayout(5,1,5,5));
     private JLabel jlbStatus = new JLabel("Status");
     private Container cp;
@@ -25,7 +24,7 @@ public class SFrame extends JFrame{
     }
 
     private void initComp(){
-        this.setBounds(200,100,300,400);
+        this.setBounds(100,100,800,800);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setTitle("Chat Server");
         cp = getContentPane();

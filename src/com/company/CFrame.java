@@ -26,7 +26,7 @@ public class CFrame extends JFrame{
     }
 
     private void initComp(){
-        this.setBounds(600,100,300,400);
+        this.setBounds(1000,100,800,800);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setTitle("Chat Client");
         cp = getContentPane();
@@ -64,18 +64,20 @@ public class CFrame extends JFrame{
         functionPan.add(jtfIP);
         functionPan.add(jbtnConnect);
         functionPan.add(jbtnExit);
-        jbtnSend.setPreferredSize(new Dimension(85,65));
+        jbtnSend.setPreferredSize(new Dimension(65,30));
         cp.add(jsp,BorderLayout.CENTER);
         jpnBottom.add(jspOut,BorderLayout.CENTER);
-        jpnBottom.add(jspOut,BorderLayout.EAST);
+        jpnBottom.add(jbtnSend,BorderLayout.EAST);
         cp.add(functionPan,BorderLayout.EAST);
         cp.add(jpnBottom,BorderLayout.SOUTH);
 
     }
     public void addMsg(String inStr){
-        jtaIn.append("Client:"+inStr+"\n");
+
+        jtaIn.append("Server:"+inStr+"\n");
     }
     public String grtIP(){
+
         return jtfIP.getText();
     }
     public static void main(String argv[]){
