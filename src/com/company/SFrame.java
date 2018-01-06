@@ -2,8 +2,7 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class SFrame extends JFrame{
     private JButton jbtnRun = new JButton("Start");
@@ -19,15 +18,19 @@ public class SFrame extends JFrame{
     private Container cp;
     private Server serv;
 
+
+    private JPanel jpn = new JPanel();
+    public int x1  ,y1  ,x2  ,y2  ;
+
     public SFrame(){
         initComp();
     }
 
     private void initComp(){
-        this.setBounds(100,100,800,800);
+        this.setBounds(100,100,500,500);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setTitle("Chat Server");
-        cp = getContentPane();
+        cp = this.getContentPane();
         cp.setLayout(new BorderLayout(5,5));
         jbtnRun.addActionListener(new ActionListener() {
             @Override
@@ -64,7 +67,61 @@ public class SFrame extends JFrame{
         cp.add(jsp,BorderLayout.CENTER);
         cp.add(jpnBottom,BorderLayout.SOUTH);
 
+
+        jpn.setLayout(new GridLayout(5,1,5,5));
+
+        jpn.add(jbtnExit);
+
+        cp.add(jpn,BorderLayout.WEST);
+
+        jta.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                x1=e.getX(); // 取得滑鼠按下時的 x 座標 (繪圖起始點的 x 座標)
+                y1=e.getY(); // 取得滑鼠按下時的 y 座標 (繪圖起始點的 y 座標)
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        jta.addMouseMotionListener(new MouseMotionListener() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                Graphics g = jta.getGraphics();
+                x2=e.getX(); // 取得拖曳滑鼠時的 x 座標
+                y2=e.getY(); // 取得拖曳滑鼠時的 y 座標
+                g.drawLine(x1,y1,x2,y2); // 繪出(x1,y1)到(x2,y2)的連線
+                x1=x2; // 更新繪圖起始點的 x 座標
+                y1=y2; // 更新繪圖起始點的 y 座標
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+
+            }
+        });
+        cp.add(jta,BorderLayout.CENTER);
+
     }
+
+
     public void addMsg(String inStr){
         jta.append("Client:"+inStr+"\n");
     }

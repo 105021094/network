@@ -26,7 +26,7 @@ public class CFrame extends JFrame{
     }
 
     private void initComp(){
-        this.setBounds(1000,100,800,800);
+        this.setBounds(1000,100,500,500);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setTitle("Chat Client");
         cp = getContentPane();
