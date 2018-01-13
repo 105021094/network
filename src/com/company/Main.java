@@ -3,11 +3,10 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        SFrame sfrm = new SFrame();
-        sfrm.setVisible(true);
-        CFrame cfrm = new CFrame();
-        cfrm.setVisible(true);
-
+        Myserver ms = new Myserver();
+        ms.initServer();
+        ClientUI ui = new ClientUI();
+        ui.initFrame();
 
     }
 }
